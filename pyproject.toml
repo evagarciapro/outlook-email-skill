@@ -1,0 +1,14 @@
+[project]
+name = "outlook-email-skill"
+version = "0.1.0"
+description = "Read and analyze Outlook emails using Microsoft Graph"
+readme = "README.md"
+requires-python = ">=3.10"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,15 @@
+{
+  "client_id": "",
+  "tenant_id": "common",
+  "auth_mode": "delegated",
+  "mailbox": "me",
+  "folder": "inbox",
+  "page_size": 50,
+  "timeout": 30,
+  "max_retries": 3,
+  "include_attachments": true,
+  "work_domains": ["example.com"],
+  "work_keywords": ["project", "meeting", "invoice", "report", "deadline"],
+  "personal_keywords": ["family", "birthday", "dinner", "holiday"],
+  "urgent_keywords": ["urgent", "asap", "immediately", "overdue"]
+}
