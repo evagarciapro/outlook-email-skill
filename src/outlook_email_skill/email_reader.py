@@ -1,6 +1,7 @@
 """Read-only Microsoft Graph integration with bounded retries."""
 
 import logging
+import math
 import time
 from collections.abc import Callable, Iterator
 from datetime import datetime, timezone
@@ -116,6 +117,8 @@ class EmailReader:
         value = response.headers.get("Retry-After", "")
         try:
             delay = float(value)
+            if not math.isfinite(delay):
+                raise ValueError("Invalid retry delay")
         except ValueError:
             try:
                 delay = (parsedate_to_datetime(value) - datetime.now(timezone.utc)).total_seconds()

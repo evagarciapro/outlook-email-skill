@@ -149,6 +149,7 @@ class ReaderTests(unittest.TestCase):
 
     def test_retry_after_dates_and_long_wait(self):
         self.assertEqual(EmailReader._retry_delay(response(headers={"Retry-After": "bad"}), 2), 4)
+        self.assertEqual(EmailReader._retry_delay(response(headers={"Retry-After": "nan"}), 2), 4)
         self.assertEqual(EmailReader._retry_delay(
             response(headers={"Retry-After": "Wed, 21 Oct 2015 07:28:00 GMT"}), 1
         ), 0)
